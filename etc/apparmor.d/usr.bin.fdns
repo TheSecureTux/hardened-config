@@ -1,0 +1,38 @@
+# vim:syntax=apparmor
+#include <tunables/global>
+
+/usr/bin/fdns flags=(complain) {
+  #include <abstractions/base>
+  #include <abstractions/nameservice>
+  #include <abstractions/openssl>
+  #include <abstractions/ssl_certs>
+
+  capability kill,
+  capability net_bind_service,
+  capability setgid,
+  capability setuid,
+  capability sys_admin,
+  capability sys_chroot,
+
+  signal send set=kill peer=/usr/bin/fdns//null-/usr/bin/fdns,
+
+  /usr/bin/fdns mrix,
+
+# we need to be able to create /dev/shm/fdns-stats file
+  /dev/** rw,
+
+# we need to be able to create /run/fdns directory and inspect /proc
+  /run/** rw,
+  /proc/** r,
+
+  /etc/fdns/** r,
+
+ # mount required for setting up the mount namespace in the resolver processes - Debian 10
+  mount,
+
+# problems on Ubuntu 18.04, unix (bind) is required - allow all unix socket functionality
+  unix,
+
+  deny ptrace (r, rw, read, readby, trace, tracedby),
+
+}
