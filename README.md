@@ -4,8 +4,7 @@ Just a backup of the config files I modified in order to harden security  in the
 Work in constant progress and improvement.
 
 ❯ cat /proc/cmdline     
-BOOT_IMAGE=/boot/vmlinuz-linux-zen root=UUID=79ca09f2-b555-4521-95cd-95746a7d8ae0 rw rw quiet loglevel=3 nowatchdog l1tf=full,force spec_store_bypass_disable=on spectre_v2=on apparmor=1 lsm=lockdown,yama,apparmor init_on_alloc=1 init_on_free=1 page_alloc.shuffle=1 slab_nomerge vsyscall=none slub_debug=F,Z,P
-
+rw quiet loglevel=3 nowatchdog l1tf=full,force spec_store_bypass_disable=on spectre_v2=on apparmor=1 lsm=lockdown,yama,apparmor init_on_alloc=1 init_on_free=1 page_alloc.shuffle=1 slab_nomerge vsyscall=none slub_debug=F,Z,P
 ```
 
 
