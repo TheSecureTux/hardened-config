@@ -1,3 +1,4 @@
+
 [global/wm]
 ;https://github.com/jaagr/polybar/wiki/Configuration#global-wm-settings
 margin-top = 0
@@ -35,6 +36,25 @@ volume-med = #ebcb8b
 volume-max = #bf616a
 ; =======================
 
+; Gotham theme ==========
+; background = #0a0f14
+; foreground = #99d1ce
+; alert = #d26937
+; volume-min = #2aa889
+; volume-med = #edb443
+; volume-max = #c23127
+; =======================
+
+; INTRCPTR theme ============
+;background = ${xrdb:color0:#222}
+;background = #aa000000
+;background-alt = #444
+;foreground = ${xrdb:color7:#222}
+;foreground = #fff
+;foreground-alt = #555
+;primary = #ffb52a
+;secondary = #e60053
+;alert = #bd2c40
 
 ################################################################################
 ################################################################################
@@ -182,7 +202,7 @@ font-2 = "Noto Sans:size=10;0"
 font-3 = "Noto Sans Mono:size=10;0"
 
 modules-left = i3     
-modules-center = 
+modules-center = mpd 
 modules-right = temperature2  date 
 
 separator = |
@@ -828,9 +848,9 @@ format-background = ${colors.background}
 [module/mpd]
 ;https://github.com/jaagr/polybar/wiki/Module:-mpd
 type = internal/mpd
+host = "127.0.0.1" 
+port = "6600"
 format-online =  "<label-song>   <icon-prev>  <icon-stop>  <toggle>  <icon-next>"
-;format-online =  "<label-song>  <bar-progress>"
-;format-online =  "<label-song>  <bar-progress> <icon-prev>  <icon-stop>  <toggle>  <icon-next>"
 icon-prev = 
 icon-stop = 
 icon-play = 
